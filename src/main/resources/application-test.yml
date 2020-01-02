@@ -1,0 +1,44 @@
+server:
+  port: 9090
+
+spring:
+  main:
+    #    可设置为禁用banner
+    banner-mode: off
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/vashdb?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  thymeleaf:
+    #    禁用缓存，直接查看模板修改的效果，不需要重启程序
+    #    todo 此处可以利用优先级的特点，在高优先级中(如环境变量等)设置关闭缓存，用于本地调试，又不用担心影响生产环境的效率问题
+    cache: false
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.vash.boot_demo.entity
+
+# show sql
+logging:
+  level:
+    root: warn
+    com:
+      vash:
+        boot_demo:
+          dao: debug
+    org:
+      springframework:
+        security: DEBUG
+  # todo 日志输出的位置和文件名，待测试
+  #  todo Spring Boot中的logging.path和logging.file这2个属性，只需要配置其中之一即可，如果同时配置，则使用logging.file属性
+  #  配置了loggin.path属性 将在该路径下生成spring.log文件
+  #  配置了loggin.name属性 将在项目路径下生成自定义name文件
+  file:
+    #    path: D://pan//log
+    name: D:/pan/log/book.log
+  # todo 此处设置自定义的日志配置文件
+  config:
+
+amazon:
+  associateId: ceshi-1111
