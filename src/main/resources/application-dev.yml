@@ -3,13 +3,17 @@ server:
 
 spring:
   main:
+    #当遇到相同名字时，是否允许覆盖注册
+    allow-bean-definition-overriding: true
     #    可设置为禁用banner
-    banner-mode: console
+#    banner-mode: console
   datasource:
     username: root
-    password: root
-    url: jdbc:mysql://localhost:3306/vashdb?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    password: 123456
+    url: jdbc:mysql://localhost:3306/springboot_sia?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
+    #  数据库表自动创建，参考：https://www.cnblogs.com/klyjb/p/11002778.html
+    initialization-mode: always
   thymeleaf:
     #    禁用缓存，直接查看模板修改的效果，不需要重启程序
     #    todo 此处可以利用优先级的特点，在高优先级中(如环境变量等)设置关闭缓存，用于本地调试，又不用担心影响生产环境的效率问题
@@ -17,6 +21,7 @@ spring:
 #    todo 以下的配置在application.yml中已经定义，意味着profiles激活的是dev对应的yml和java配置。
 #  profiles:
 #    active: dev
+
 
 mybatis:
   mapper-locations: classpath:mapping/*Mapper.xml

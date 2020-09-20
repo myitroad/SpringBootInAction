@@ -1,0 +1,1 @@
+insert into book (id,reader,isbn,title,author,description ) values (1,'testReader1','isbn0001', 'The title one', 'The author xxx','info.');

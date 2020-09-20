@@ -14,7 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @MapperScan("com.vash.boot_demo.dao")
-public class ReadingListApplication {
+    public class ReadingListApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ReadingListApplication.class, args);
